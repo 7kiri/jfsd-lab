@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {
+        "packages":["map"],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        "mapsApiKey": "AIzaSyBRi6PDcMhTY6MxSXaK_uffk7R_GYBB8TE"
+      });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Lat', 'Long', 'Name'],
+          [13.618571, 79.421814,'Tirupati'],
+          [14.468400953830793,78.82957645030608, 'Kadapa'],
+          [16.4419, 80.6226, 'KLU'],
+        ]);
+        var map = new google.visualization.Map(document.getElementById('map_div'));
+        map.draw(data, {
+          showTooltip: true,
+          showInfoWindow: true
+        });      }
+    </script>
+  </head>
+  <body>
+    <div id="map_div" style="width: 900px; height: 700px"></div>
+  </body>
+</html>
